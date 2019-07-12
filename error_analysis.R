@@ -34,6 +34,11 @@ all_data <- all_data %>%
     ctype=factor(ctype, labels=c('0','1'))
   )
 
-vars <- c('MRS_3', 'MRS_1', 'Mobility', 'Toilet_use', 'Grooming', 'Bathing', 'Dressing', 'Transfers', 'discharged_mrs', 'Stairs', 'Feeding', 'TRMNG_FL', 'NIHS_5aL_out', 'NIHS_5bR_out', 'Bladder_control', 'NIHS_6bR_out', 'Bowel_control', 'NIHS_10_out', 'NIHS_6aL_out', 'OFFDT_ID_1.0', 'TRMRE_FL', 'NIHS_6aL_in', 'ctype')
+vars <- c('MRS_3', 'MRS_1', 'discharged_mrs', 'Mobility', 'Toilet_use', 'Grooming', 'Bathing', 'Dressing', 'Transfers', 'Stairs', 'Feeding', 'TRMNG_FL', 'NIHS_5aL_out', 'NIHS_5bR_out', 'Bladder_control', 'NIHS_6bR_out', 'Bowel_control', 'NIHS_10_out', 'NIHS_6aL_out', 'OFFDT_ID_1.0', 'TRMRE_FL', 'NIHS_6aL_in')
 tabUnmatched <- CreateTableOne(vars = vars, strata = "ctype", data = all_data, test = TRUE)
 print(tabUnmatched, smd = TRUE)
+
+
+all_data <- read.csv("all_right_wrong_h.csv", header = TRUE)
+contTable <- CreateContTable(vars = vars, strata = "ctype", data = all_data)
+print(contTable)
