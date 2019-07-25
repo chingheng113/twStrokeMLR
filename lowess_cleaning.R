@@ -51,14 +51,14 @@ print(filter.levels.lower)
 print('filter.levels.upper')
 print(filter.levels.upper)
 
-# plot bubble ===
-# freq_table <- as.data.frame(table(data_bm$Barthel_Total, data_bm$discharged_mrs))
-# p <- ggplot(freq_table, aes(x = freq_table[,2], y = freq_table[,1], size = freq_table[,3]))+geom_point()
-# p+geom_smooth(method="loess", formula=data_bm$Barthel_Total ~ data_bm$discharged_mrs, size = 1.5)
+#plot bubble ===
+freq_table <- as.data.frame(table(data_bm$Barthel_Total, data_bm$discharged_mrs))
+p <- ggplot(freq_table, aes(x = freq_table[,2], y = freq_table[,1], size = freq_table[,3]))+geom_point()
+p+geom_smooth(method="loess", formula=data_bm$Barthel_Total ~ data_bm$discharged_mrs, size = 1.5)
 
-# plot regression line ===
-# plot(data_bm$discharged_mrs,data_bm$Barthel_Total,xlab="MRS",ylab="BAR",main="LOWESS (f=1/32)",col=2)
-# lines(lowess.data$x,lowess.data$y,lwd=2)
+#plot regression line ===
+plot(data_bm$discharged_mrs,data_bm$Barthel_Total,xlab="MRS",ylab="BAR",main="LOWESS (f=1/32)",col=2)
+lines(lowess.data$x,lowess.data$y,lwd=2)
 #  
 # lines(lowess.data$x,lower.lowess,lwd=2,lty=2)
 # lines(lowess.data$x,lower.lowess2,lwd=2,lty=3)
