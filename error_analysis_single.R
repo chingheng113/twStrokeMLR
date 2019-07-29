@@ -7,17 +7,17 @@ library(dplyr)
 all_data <- read.csv("all_right_wrong_h.csv", header = TRUE)
 attach(all_data)
 
+#MRS_3=factor(MRS_3, labels=c('0','1', '2', '3', '4', '5', '6')),
+#MRS_1=factor(MRS_1, labels=c('0','1', '2', '3', '4', '5', '6')),
+#discharged_mrs=factor(discharged_mrs, labels=c('0','1', '2', '3', '4', '5')),
 all_data <- all_data %>%
   mutate(
-    MRS_3=factor(MRS_3, labels=c('0','1', '2', '3', '4', '5', '6')),
-    MRS_1=factor(MRS_1, labels=c('0','1', '2', '3', '4', '5', '6')),
     Mobility=factor(Mobility, labels=c('0','5','10', '15')),
     Toilet_use=factor(Toilet_use, labels=c('0','5','10')),
     Grooming=factor(Grooming, labels=c('0','5')),
     Bathing=factor(Bathing, labels=c('0','5')),
     Dressing=factor(Dressing, labels=c('0','5','10')),
     Transfers=factor(Transfers, labels=c('0','5','10','15')),
-    discharged_mrs=factor(discharged_mrs, labels=c('0','1', '2', '3', '4', '5')),
     Stairs=factor(Stairs, labels=c('0','5','10')),
     Feeding=factor(Feeding, labels=c('0','5','10')),
     TRMNG_FL=factor(TRMNG_FL, labels=c('0','1')),
