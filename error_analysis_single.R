@@ -7,6 +7,9 @@ library(dplyr)
 all_data <- read.csv("all_right_wrong_h.csv", header = TRUE)
 attach(all_data)
 
+#MRS_3=factor(MRS_3, labels=c('0','1', '2', '3', '4', '5', '6')),
+#MRS_1=factor(MRS_1, labels=c('0','1', '2', '3', '4', '5', '6')),
+#discharged_mrs=factor(discharged_mrs, labels=c('0','1', '2', '3', '4', '5')),
 all_data <- all_data %>%
   mutate(
     Mobility=factor(Mobility, labels=c('0','5','10', '15')),
