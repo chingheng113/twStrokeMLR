@@ -9,15 +9,12 @@ attach(all_data)
 
 all_data <- all_data %>%
   mutate(
-    MRS_3=factor(MRS_3, labels=c('0','1', '2', '3', '4', '5', '6')),
-    MRS_1=factor(MRS_1, labels=c('0','1', '2', '3', '4', '5', '6')),
     Mobility=factor(Mobility, labels=c('0','5','10', '15')),
     Toilet_use=factor(Toilet_use, labels=c('0','5','10')),
     Grooming=factor(Grooming, labels=c('0','5')),
     Bathing=factor(Bathing, labels=c('0','5')),
     Dressing=factor(Dressing, labels=c('0','5','10')),
     Transfers=factor(Transfers, labels=c('0','5','10','15')),
-    discharged_mrs=factor(discharged_mrs, labels=c('0','1', '2', '3', '4', '5')),
     Stairs=factor(Stairs, labels=c('0','5','10')),
     Feeding=factor(Feeding, labels=c('0','5','10')),
     TRMNG_FL=factor(TRMNG_FL, labels=c('0','1')),
@@ -34,7 +31,7 @@ all_data <- all_data %>%
     ctype=factor(ctype, labels=c('0','1'))
   )
 
-vars <- c('MRS_3', 'MRS_1', 'discharged_mrs', 'change_1m', 'change_3m', 'Mobility', 'Toilet_use', 'Grooming', 'Bathing', 'Dressing', 'Transfers', 'Stairs', 'Feeding', 'TRMNG_FL', 'NIHS_5aL_out', 'NIHS_5bR_out', 'Bladder_control', 'NIHS_6bR_out', 'Bowel_control', 'NIHS_10_out', 'NIHS_6aL_out', 'OFFDT_ID_1.0', 'TRMRE_FL', 'NIHS_6aL_in')
+vars <- c('MRS_1', 'discharged_mrs', 'change_1m', 'change_3m', 'Mobility', 'Toilet_use', 'Grooming', 'Bathing', 'Dressing', 'Transfers', 'Stairs', 'Feeding', 'TRMNG_FL', 'NIHS_5aL_out', 'NIHS_5bR_out', 'Bladder_control', 'NIHS_6bR_out', 'Bowel_control', 'NIHS_10_out', 'NIHS_6aL_out', 'OFFDT_ID_1.0', 'TRMRE_FL', 'NIHS_6aL_in')
 tabUnmatched <- CreateTableOne(vars = vars, strata = "ctype", data = all_data, test = TRUE)
 print(tabUnmatched, smd = TRUE)
 

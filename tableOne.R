@@ -14,11 +14,11 @@ data['NIHSS_Total'] <- cut(data$NIHSS_Total, c(42,20,15,4,0,-1), labels = c('No 
 data['discharged_mrs'] <- cut(data$discharged_mrs, c(2) , labels = c('good','poor'))
 
 
-select_data <- dplyr::select(data, GENDER_TX, onset_age, ICD_ID, discharged_mrs, Barthel_Total, NIHSS_Total)
+select_data <- dplyr::select(data, Gender, onset_age, ICD_ID, discharged_mrs, Barthel_Total, NIHSS_Total)
 
 select_data <- select_data %>%
   mutate(
-    GENDER_TX=factor(GENDER_TX, labels =c('0', '1') ),
+    Gender=factor(Gender, labels =c('0', '1') ),
     Barthel_Total=factor(Barthel_Total, labels=c('Totally dependent', 'Very dependent', 'Partially dependent', 'Minimally dependent', 'Independent')),
     NIHSS_Total=factor(NIHSS_Total, labels=c('No stroke symptoms', 'Minor stroke', 'Moderate stroke', 'Moderate to severe stroke', 'Severe stroke')),
     discharged_mrs=factor(discharged_mrs, labels=c('good','poor')),
@@ -26,5 +26,5 @@ select_data <- select_data %>%
   )
 
 vars <- c('onset_age', 'ICD_ID', 'discharged_mrs', 'Barthel_Total', 'NIHSS_Total')
-tabUnmatched <- CreateTableOne(vars = vars, strata = "GENDER_TX", data = select_data, test = TRUE)
+tabUnmatched <- CreateTableOne(vars = vars, strata = "Gender", data = select_data, test = TRUE)
 print(tabUnmatched, smd = TRUE)
